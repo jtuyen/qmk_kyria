@@ -7,11 +7,11 @@ A high level overview of customized keys:
   - Single tap Left CTRL, Double tap Space
 - Enabled Chording aka Combos
   - AZ keys triggers Undo
-  - SX keys triggers Alfred Snippet
-  - SW keys triggers Cut
+  - SW keys triggers Alfred Snippet
+  - SX keys triggers Cut
   - DC keys triggers Copy
-  - FV keys triggers Alfred Paste
-  - FR keys triggers Paste
+  - FR keys triggers Alfred Paste
+  - FV keys triggers Paste
   - AB keys triggers Tmux Leader key
 - Hyper Key / ESC
 - One Shot Mod Left Shift and Right CTRL
