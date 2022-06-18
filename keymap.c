@@ -14,6 +14,7 @@ enum tap_dance_keys {
 enum combos {
     AZ_UNDO,
     SX_ALFRED_SNIPPET,
+    SW_CUT,
     DC_COPY,
     FV_ALFRED_PASTE,
     AB_TMUX,
@@ -25,6 +26,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 const uint16_t PROGMEM az_combo[] = {KC_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {KC_S, KC_X, COMBO_END};
+const uint16_t PROGMEM sw_combo[] = {KC_S, KC_W, COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM fr_combo[] = {KC_F, KC_R, COMBO_END};
@@ -33,6 +35,7 @@ const uint16_t PROGMEM ab_combo[] = {KC_A, KC_B, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
   [AZ_UNDO] = COMBO(az_combo, LGUI(KC_Z)),
   [SX_ALFRED_SNIPPET] = COMBO(sx_combo, LSG(KC_X)),
+  [SW_CUT] = COMBO(sw_combo, LGUI(KC_X)),
   [DC_COPY] = COMBO(dc_combo, LGUI(KC_C)),
   [FV_ALFRED_PASTE] = COMBO(fv_combo, LSG(KC_V)),
   [FR_PASTE] = COMBO(fr_combo, LGUI(KC_V)),
