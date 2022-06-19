@@ -12,7 +12,7 @@ A high level overview of customized keys:
   - DC keys triggers Copy
   - FR keys triggers Alfred Paste
   - FV keys triggers Paste
-  - AB keys triggers Tmux Leader key
-- Hyper Key / ESC
+  - AF keys triggers Tmux Leader key
+- Mod Tap Hyper Key / ESC
 - One Shot Mod Left Shift and Right CTRL
-- Quad layers (Main, Symbols, Navigation, Numpad + RGB)
+- Quad layers (Main, Symbols, Navigation, Numpad+RGB)
