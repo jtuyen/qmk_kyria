@@ -13,12 +13,19 @@ A high level overview of customized keys:
   - FR keys triggers Alfred Paste
   - FV keys triggers Paste
   - AF keys triggers Tmux Leader key
-- Mod Tap
+- Mod-Tap
   - Hyper Key / ESC
+- Modifiers
   - Left GUI Movement Key (Cursor movement)
   - Left Shift Left GUI Movement Key (Cursor highlight movement)
-- One Shot Mod Left Shift and Right CTRL
-- Quad layers (Main, Symbols, Navigation, Numpad+RGB)
+- One Shot Mods
+  - Left Shift
+  - Right CTRL
+- Quad layers
+  - Main
+  - Symbols
+  - Navigation
+  - Numpad+RGB
 
 /* ,-----------------------------------------.                              ,-----------------------------------------.
  * | TAB  |  Q   |  W   |  E   |  R   |  T   |                              |  Y   |  U   |  I   |  O   |  P   | BSPC |
