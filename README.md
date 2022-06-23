@@ -18,6 +18,7 @@ A high level overview of customized keys:
 - Modifiers
   - Left GUI Movement Key (Cursor movement)
   - Left Shift Left GUI Movement Key (Cursor highlight movement)
+  - Left Shift Left GUI + 4 (Screenshot)
 - One Shot Mods
   - Left Shift
   - Right CTRL
