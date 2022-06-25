@@ -13,6 +13,7 @@ A high level overview of customized keys:
   - FR keys triggers Alfred Paste
   - FV keys triggers Paste
   - AF keys triggers Tmux Leader key
+  - AD keys triggers Gmail Delete shortcut
 - Mod-Tap
   - Hyper Key / ESC
 - Modifiers
