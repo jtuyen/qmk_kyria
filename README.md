@@ -14,6 +14,7 @@ A high level overview of customized keys:
   - FV keys triggers Paste
   - AF keys triggers Tmux Leader key
   - AD keys triggers Gmail Delete shortcut
+  - ;' keys triggers Enter
 - Mod-Tap
   - Hyper Key / ESC
 - Modifiers
