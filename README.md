@@ -1,5 +1,8 @@
 # Kyria 40% Keyboard Config
 This configuration is an ongoing process of discovering new QMK features and diving into the realm of customizing the key layout according to my own daily workflow.
+
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/splitkb.jpeg)
+
 A high level overview of customized keys:
 - Enabled Tap Dance
   - Single tap (, Double tap [
