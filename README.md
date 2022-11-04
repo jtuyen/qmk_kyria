@@ -34,6 +34,8 @@ A high level overview of customized keys:
   - Navigation
   - Numpad+RGB
 
+View below section in raw ascii format:
+
 /* ,-----------------------------------------.                              ,-----------------------------------------.
  * | TAB  |  Q   |  W   |  E   |  R   |  T   |                              |  Y   |  U   |  I   |  O   |  P   | BSPC |
  * |------+------+------+------+------+------|                              |------+------+------+------+------+------|
