@@ -16,10 +16,8 @@ enum combos {
     SW_ALFRED_SNIPPET,
     SX_CUT,
     DC_COPY,
-    FR_ALFRED_PASTE,
-    FV_PASTE,
-    AF_TMUX,
-    AD_GMAIL_DEL,
+    FV_ALFRED_PASTE,
+    FR_PASTE,
     SCLN_QUOT_ENT,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -33,8 +31,6 @@ const uint16_t PROGMEM sw_combo[] = {KC_S, KC_W, COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM fr_combo[] = {KC_F, KC_R, COMBO_END};
-const uint16_t PROGMEM af_combo[] = {KC_A, KC_F, COMBO_END};
-const uint16_t PROGMEM ad_combo[] = {KC_A, KC_D, COMBO_END};
 const uint16_t PROGMEM scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -43,9 +39,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [SX_CUT] = COMBO(sw_combo, LGUI(KC_X)),
   [DC_COPY] = COMBO(dc_combo, LGUI(KC_C)),
   [FR_ALFRED_PASTE] = COMBO(fv_combo, LSG(KC_V)),
-  [FV_PASTE] = COMBO(fr_combo, LGUI(KC_V)),
-  [AF_TMUX] = COMBO(af_combo, RCTL(KC_B)),
-  [AD_GMAIL_DEL] = COMBO(ad_combo, KC_HASH),
+  [FR_PASTE] = COMBO(fr_combo, LGUI(KC_V)),
   [SCLN_QUOT_ENT] = COMBO(scln_quot_ent, KC_ENT),
 };
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -130,13 +124,13 @@ bool oled_task_user(void) {
                 oled_write_raw_P(hack_logo, sizeof(hack_logo));
                 break;
             case SYMBOL:
-                oled_write_P(PSTR("SYMBOL"), false);
+                oled_write_P(PSTR("MAC-SYMBOL"), false);
                 break;
             case NAVIGATION:
-                oled_write_P(PSTR("NAVIGATION"), false);
+                oled_write_P(PSTR("MAC-NAVIGATION"), false);
                 break;
             case NUMPAD_RGB:
-                oled_write_P(PSTR("NUMPAD+RGB"), false);
+                oled_write_P(PSTR("MAC-NUMPAD+RGB"), false);
                 break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
