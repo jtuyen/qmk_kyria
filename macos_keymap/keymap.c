@@ -16,8 +16,8 @@ enum combos {
     SW_ALFRED_SNIPPET,
     SX_CUT,
     DC_COPY,
-    FV_ALFRED_PASTE,
-    FR_PASTE,
+    FR_ALFRED_PASTE,
+    FV_PASTE,
     SCLN_QUOT_ENT,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -38,8 +38,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [SW_ALFRED_SNIPPET] = COMBO(sx_combo, LSG(KC_X)),
   [SX_CUT] = COMBO(sw_combo, LGUI(KC_X)),
   [DC_COPY] = COMBO(dc_combo, LGUI(KC_C)),
-  [FR_ALFRED_PASTE] = COMBO(fv_combo, LSG(KC_V)),
-  [FR_PASTE] = COMBO(fr_combo, LGUI(KC_V)),
+  [FR_ALFRED_PASTE] = COMBO(fr_combo, LSG(KC_V)),
+  [FV_PASTE] = COMBO(fv_combo, LGUI(KC_V)),
   [SCLN_QUOT_ENT] = COMBO(scln_quot_ent, KC_ENT),
 };
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
