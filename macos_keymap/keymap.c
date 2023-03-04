@@ -35,8 +35,8 @@ const uint16_t PROGMEM scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [AZ_UNDO] = COMBO(az_combo, LGUI(KC_Z)),
-  [SW_ALFRED_SNIPPET] = COMBO(sx_combo, LSG(KC_X)),
-  [SX_CUT] = COMBO(sw_combo, LGUI(KC_X)),
+  [SW_ALFRED_SNIPPET] = COMBO(sw_combo, LSG(KC_W)),
+  [SX_CUT] = COMBO(sx_combo, LGUI(KC_X)),
   [DC_COPY] = COMBO(dc_combo, LGUI(KC_C)),
   [FR_ALFRED_PASTE] = COMBO(fr_combo, LSG(KC_V)),
   [FV_PASTE] = COMBO(fv_combo, LGUI(KC_V)),
