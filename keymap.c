@@ -1,9 +1,12 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-    HACK = 0,
-    SYMBOL,
-    NAVIGATION,
+    MAC_BASE = 0,
+    MAC_SYMBOL,
+    MAC_NAVIGATION,
+    WIN_BASE,
+    WIN_SYMBOL,
+    WIN_NAVIGATION,
     NUMPAD_RGB,
 };
 enum tap_dance_keys {
@@ -12,41 +15,63 @@ enum tap_dance_keys {
     TD_LCTL_SPC,
 };
 enum combos {
-    AZ_UNDO,
-    SW_ALFRED_SNIPPET,
-    SX_CUT,
-    DC_COPY,
-    FR_ALFRED_PASTE,
-    FV_PASTE,
-    SCLN_QUOT_ENT,
+    MAC_AZ_UNDO,
+    MAC_SW_ALFRED_SNIPPET,
+    MAC_SX_CUT,
+    MAC_DC_COPY,
+    MAC_FR_ALFRED_PASTE,
+    MAC_FV_PASTE,
+    MAC_SCLN_QUOT_ENT,
+    WIN_AZ_UNDO,
+    WIN_SX_CUT,
+    WIN_DC_COPY,
+    WIN_FR_CLIP_HISTORY,
+    WIN_FV_PASTE,
+    WIN_SCLN_QUOT_ENT,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_LPRN_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_LBRC),
     [TD_RPRN_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RPRN, KC_RBRC),
     [TD_LCTL_SPC] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_SPC),
 };
-const uint16_t PROGMEM az_combo[] = {KC_A, KC_Z, COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {KC_S, KC_X, COMBO_END};
-const uint16_t PROGMEM sw_combo[] = {KC_S, KC_W, COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {KC_D, KC_C, COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {KC_F, KC_V, COMBO_END};
-const uint16_t PROGMEM fr_combo[] = {KC_F, KC_R, COMBO_END};
-const uint16_t PROGMEM scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM mac_az_combo[] = {KC_A, KC_Z, COMBO_END};
+const uint16_t PROGMEM mac_sx_combo[] = {KC_S, KC_X, COMBO_END};
+const uint16_t PROGMEM mac_sw_combo[] = {KC_S, KC_W, COMBO_END};
+const uint16_t PROGMEM mac_dc_combo[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM mac_fv_combo[] = {KC_F, KC_V, COMBO_END};
+const uint16_t PROGMEM mac_fr_combo[] = {KC_F, KC_R, COMBO_END};
+const uint16_t PROGMEM mac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM win_az_combo[] = {KC_A, KC_Z, COMBO_END};
+const uint16_t PROGMEM win_sx_combo[] = {KC_S, KC_X, COMBO_END};
+const uint16_t PROGMEM win_dc_combo[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM win_fr_combo[] = {KC_F, KC_R, COMBO_END};
+const uint16_t PROGMEM win_fv_combo[] = {KC_F, KC_V, COMBO_END};
+const uint16_t PROGMEM win_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [AZ_UNDO] = COMBO(az_combo, LGUI(KC_Z)),
-  [SW_ALFRED_SNIPPET] = COMBO(sw_combo, LSG(KC_W)),
-  [SX_CUT] = COMBO(sx_combo, LGUI(KC_X)),
-  [DC_COPY] = COMBO(dc_combo, LGUI(KC_C)),
-  [FR_ALFRED_PASTE] = COMBO(fr_combo, LSG(KC_V)),
-  [FV_PASTE] = COMBO(fv_combo, LGUI(KC_V)),
-  [SCLN_QUOT_ENT] = COMBO(scln_quot_ent, KC_ENT),
+  [MAC_AZ_UNDO] = COMBO(mac_az_combo, LGUI(KC_Z)),
+  [MAC_SW_ALFRED_SNIPPET] = COMBO(mac_sw_combo, LSG(KC_W)),
+  [MAC_SX_CUT] = COMBO(mac_sx_combo, LGUI(KC_X)),
+  [MAC_DC_COPY] = COMBO(mac_dc_combo, LGUI(KC_C)),
+  [MAC_FR_ALFRED_PASTE] = COMBO(mac_fr_combo, LSG(KC_V)),
+  [MAC_FV_PASTE] = COMBO(mac_fv_combo, LGUI(KC_V)),
+  [MAC_SCLN_QUOT_ENT] = COMBO(mac_scln_quot_ent, (KC_ENT)),
+  [WIN_AZ_UNDO] = COMBO(win_az_combo, RCTL(KC_Z)),
+  [WIN_SX_CUT] = COMBO(win_sx_combo, RCTL(KC_X)),
+  [WIN_DC_COPY] = COMBO(win_dc_combo, RCTL(KC_C)),
+  [WIN_FV_PASTE] = COMBO(win_fv_combo, RCTL(KC_V)),
+  [WIN_FR_CLIP_HISTORY] = COMBO(win_fr_combo, LGUI(KC_V)),
+  [WIN_SCLN_QUOT_ENT] = COMBO(win_scln_quot_ent, (KC_ENT)),
 };
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[HACK] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), TD(TD_LPRN_LBRC), TD(TD_RPRN_RBRC), KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(2), MO(1), KC_SPC, OSM(MOD_RCTL), KC_DEL, KC_MPLY),
-	[SYMBOL] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, OSM(MOD_LSFT), KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
-	[NAVIGATION] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, LGUI(KC_LEFT), KC_NO, KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, LSG(KC_4), OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSA(KC_LEFT), KC_NO, KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
-	[NUMPAD_RGB] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, KC_TRNS, RGB_TOG, KC_NO, KC_TRNS, TO(0), TO(3), KC_TRNS, KC_NO, KC_P0, KC_TRNS)
+	[MAC_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), TD(TD_LPRN_LBRC), TD(TD_RPRN_RBRC), KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(2), MO(1), KC_SPC, OSM(MOD_RCTL), KC_DEL, KC_MPLY),
+	[MAC_SYMBOL] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, OSM(MOD_LSFT), KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
+	[MAC_NAVIGATION] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, LGUI(KC_LEFT), KC_NO, KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, LSG(KC_4), OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSA(KC_LEFT), KC_NO, KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
+	[WIN_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), TD(TD_LPRN_LBRC), TD(TD_RPRN_RBRC), KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(5), MO(4), KC_SPC, OSM(MOD_LCTL), KC_DEL, KC_MPLY),
+	[WIN_SYMBOL] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, OSM(MOD_LSFT), KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
+	[WIN_NAVIGATION] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_HOME, KC_NO, KC_PGUP, KC_END, KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, LSG(KC_S), OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RCS(KC_LEFT), KC_NO, KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
+	[NUMPAD_RGB] = LAYOUT(TO(0), TO(3), KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, KC_TRNS, RGB_TOG, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_P0, KC_TRNS)
 };
 static const char PROGMEM hack_logo[] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
@@ -120,17 +145,26 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_
 
 bool oled_task_user(void) {
         switch (get_highest_layer(layer_state|default_layer_state)) {
-            case HACK:
+            case MAC_BASE:
                 oled_write_raw_P(hack_logo, sizeof(hack_logo));
                 break;
-            case SYMBOL:
+            case MAC_SYMBOL:
                 oled_write_P(PSTR("MAC-SYMBOL"), false);
                 break;
-            case NAVIGATION:
+            case MAC_NAVIGATION:
                 oled_write_P(PSTR("MAC-NAVIGATION"), false);
                 break;
+            case WIN_BASE:
+                oled_write_P(PSTR("WIN-BASE"), false);
+                break;
+            case WIN_SYMBOL:
+                oled_write_P(PSTR("WIN-SYMBOL"), false);
+                break;
+            case WIN_NAVIGATION:
+                oled_write_P(PSTR("WIN-NAVIGATION"), false);
+                break;
             case NUMPAD_RGB:
-                oled_write_P(PSTR("MAC-NUMPAD+RGB"), false);
+                oled_write_P(PSTR("NUMPAD+RGB"), false);
                 break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
