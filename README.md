@@ -9,10 +9,13 @@ A high level overview of customized keys:
 - One Shot Mods
 - Mac/Win default layers
 
+MacOS layer:
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout.png)
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(1).png)
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(2).png)
+Windows layer:
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(3).png)
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(4).png)
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(5).png)
+Default layer:
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(6).png)
