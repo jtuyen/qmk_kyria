@@ -21,13 +21,12 @@ enum combos {
     MAC_DC_COPY,
     MAC_FR_ALFRED_PASTE,
     MAC_FV_PASTE,
-    MAC_SCLN_QUOT_ENT,
+    WINMAC_SCLN_QUOT_ENT,
     WIN_AZ_UNDO,
     WIN_SX_CUT,
     WIN_DC_COPY,
     WIN_FR_CLIP_HISTORY,
     WIN_FV_PASTE,
-    WIN_SCLN_QUOT_ENT,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_LPRN_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_LBRC),
@@ -40,13 +39,12 @@ const uint16_t PROGMEM mac_sw_combo[] = {KC_S, KC_W, COMBO_END};
 const uint16_t PROGMEM mac_dc_combo[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM mac_fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM mac_fr_combo[] = {KC_F, KC_R, COMBO_END};
-const uint16_t PROGMEM mac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM winmac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM win_az_combo[] = {KC_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM win_sx_combo[] = {KC_S, KC_X, COMBO_END};
 const uint16_t PROGMEM win_dc_combo[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM win_fr_combo[] = {KC_F, KC_R, COMBO_END};
 const uint16_t PROGMEM win_fv_combo[] = {KC_F, KC_V, COMBO_END};
-const uint16_t PROGMEM win_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [MAC_AZ_UNDO] = COMBO(mac_az_combo, LGUI(KC_Z)),
@@ -55,13 +53,12 @@ combo_t key_combos[COMBO_COUNT] = {
   [MAC_DC_COPY] = COMBO(mac_dc_combo, LGUI(KC_C)),
   [MAC_FR_ALFRED_PASTE] = COMBO(mac_fr_combo, LSG(KC_V)),
   [MAC_FV_PASTE] = COMBO(mac_fv_combo, LGUI(KC_V)),
-  [MAC_SCLN_QUOT_ENT] = COMBO(mac_scln_quot_ent, (KC_ENT)),
+  [WINMAC_SCLN_QUOT_ENT] = COMBO(winmac_scln_quot_ent, (KC_ENT)),
   [WIN_AZ_UNDO] = COMBO(win_az_combo, RCTL(KC_Z)),
   [WIN_SX_CUT] = COMBO(win_sx_combo, RCTL(KC_X)),
   [WIN_DC_COPY] = COMBO(win_dc_combo, RCTL(KC_C)),
   [WIN_FV_PASTE] = COMBO(win_fv_combo, RCTL(KC_V)),
   [WIN_FR_CLIP_HISTORY] = COMBO(win_fr_combo, LGUI(KC_V)),
-  [WIN_SCLN_QUOT_ENT] = COMBO(win_scln_quot_ent, (KC_ENT)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -200,3 +197,53 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 }
 #endif
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    switch (combo_index) {
+        case WIN_AZ_UNDO:
+            if (layer_state_is(MAC_BASE)) {
+                return false;
+            }
+        case WIN_SX_CUT:
+            if (layer_state_is(MAC_BASE)) {
+                return false;
+            }
+        case WIN_DC_COPY:
+            if (layer_state_is(MAC_BASE)) {
+                return false;
+            }
+        case WIN_FR_CLIP_HISTORY:
+            if (layer_state_is(MAC_BASE)) {
+                return false;
+            }
+        case WIN_FV_PASTE:
+            if (layer_state_is(MAC_BASE)) {
+                return false;
+            }
+        case MAC_SW_ALFRED_SNIPPET:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+        case MAC_AZ_UNDO:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+        case MAC_SX_CUT:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+        case MAC_DC_COPY:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+        case MAC_FR_ALFRED_PASTE:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+        case MAC_FV_PASTE:
+            if (layer_state_is(WIN_BASE)) {
+                return false;
+            }
+    }
+    return true;
+}
