@@ -9,10 +9,10 @@ A high level overview of customized keys:
 - One Shot Mods
 - Mac/Win default layers
 
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout.png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(1).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(2).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(3).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(4).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(5).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard_layout(6).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout.png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(1).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(2).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(3).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(4).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(5).png)
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(6).png)
