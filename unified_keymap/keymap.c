@@ -200,50 +200,72 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (combo_index) {
-        case WIN_AZ_UNDO:
+        case WIN_AZ_UNDO: {
             if (layer_state_is(MAC_BASE)) {
                 return false;
             }
-        case WIN_SX_CUT:
+            break;
+        }
+        case WIN_SX_CUT: {
             if (layer_state_is(MAC_BASE)) {
                 return false;
             }
-        case WIN_DC_COPY:
+            break;
+        }
+        case WIN_DC_COPY: {
             if (layer_state_is(MAC_BASE)) {
                 return false;
             }
-        case WIN_FR_CLIP_HISTORY:
+            break;
+        }
+        case WIN_FR_CLIP_HISTORY: {
             if (layer_state_is(MAC_BASE)) {
                 return false;
             }
-        case WIN_FV_PASTE:
+            break;
+        }
+        case WIN_FV_PASTE: {
             if (layer_state_is(MAC_BASE)) {
                 return false;
             }
-        case MAC_SW_ALFRED_SNIPPET:
+            break;
+        }
+        case MAC_SW_ALFRED_SNIPPET: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
-        case MAC_AZ_UNDO:
+            break;
+        }
+        case MAC_AZ_UNDO: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
-        case MAC_SX_CUT:
+            break;
+        }
+        case MAC_SX_CUT: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
-        case MAC_DC_COPY:
+            break;
+        }
+        case MAC_DC_COPY: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
-        case MAC_FR_ALFRED_PASTE:
+            break;
+        }
+        case MAC_FR_ALFRED_PASTE: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
-        case MAC_FV_PASTE:
+            break;
+        }
+        case MAC_FV_PASTE: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
             }
+            break;
+        }
     }
     return true;
 }
