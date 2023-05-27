@@ -187,11 +187,10 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLD);
         }
     } else if (index == 1) {
-        // Page up/Page down
         if (clockwise) {
-            tap_code(KC_DOWN);
+            tap_code16(LSG(KC_RIGHT));
         } else {
-            tap_code(KC_UP);
+            tap_code16(LSG(KC_LEFT));
         }
     }
     return false;
