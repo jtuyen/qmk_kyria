@@ -1,6 +1,6 @@
 OLED_ENABLE = yes
-OLED_DRIVER = SSD1306   # Enables the use of OLED displays
-ENCODER_ENABLE = yes       # Enables the use of one or more encoders
-# RGBLIGHT_ENABLE = yes      # Enable keyboard RGB underglow
-TAP_DANCE_ENABLE = yes   # Enable tap dance feature
-COMBO_ENABLE = yes  # Enable chording
+OLED_DRIVER = SSD1306
+ENCODER_ENABLE = yes
+RGBLIGHT_ENABLE = yes
+TAP_DANCE_ENABLE = yes
+COMBO_ENABLE = yes
