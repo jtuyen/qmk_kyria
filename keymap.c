@@ -256,36 +256,56 @@ bool oled_task_user(void) {
 }
 #endif
 
-// const rgblight_segment_t PROGMEM RGB_WIN_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
-//     {0,10,HSV_PURPLE}
-// );
+const rgblight_segment_t PROGMEM RGB_MAC_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_CHARTREUSE}
+);
+const rgblight_segment_t PROGMEM RGB_MAC_SYMBOL[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_CHARTREUSE}
+);
+const rgblight_segment_t PROGMEM RGB_MAC_NAVIGATION[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_CHARTREUSE}
+);
 
-// // Now define the array of layers. Later layers take precedence
-// const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-//     RGB_WIN_BASE
-// );
+const rgblight_segment_t PROGMEM RGB_WIN_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_AZURE}
+);
+const rgblight_segment_t PROGMEM RGB_WIN_SYMBOL[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_AZURE}
+);
+const rgblight_segment_t PROGMEM RGB_WIN_NAVIGATION[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_AZURE}
+);
 
-// void keyboard_post_init_user(void) {
-//     // Enable the LED layers
-//     rgblight_layers = my_rgb_layers;
-// };
+const rgblight_segment_t PROGMEM RGB_NUMPAD[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,20,HSV_PINK}
+);
 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     rgblight_set_layer_state(3, layer_state_cmp(state, WIN_BASE));
-//     return state;
-// };
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    RGB_MAC_BASE,
+    RGB_MAC_SYMBOL,
+    RGB_MAC_NAVIGATION,
+    RGB_WIN_BASE,
+    RGB_WIN_SYMBOL,
+    RGB_WIN_NAVIGATION,
+    RGB_NUMPAD
+);
 
-void housekeeping_task_user(void) {
-    switch (get_highest_layer(layer_state | default_layer_state)) {
-        case 0:
-            // Default layer
-            rgblight_setrgb(RGB_GOLDENROD);
-            break;
-        case 3:
-            rgblight_setrgb(RGB_AZURE);
-            break;
-    }
-}
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+};
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, MAC_BASE));
+    rgblight_set_layer_state(1, layer_state_cmp(state, MAC_SYMBOL));
+    rgblight_set_layer_state(2, layer_state_cmp(state, MAC_NAVIGATION));
+    rgblight_set_layer_state(3, layer_state_cmp(state, WIN_BASE));
+    rgblight_set_layer_state(4, layer_state_cmp(state, WIN_SYMBOL));
+    rgblight_set_layer_state(5, layer_state_cmp(state, WIN_NAVIGATION));
+    rgblight_set_layer_state(6, layer_state_cmp(state, NUMPAD_RGB));
+    return state;
+};
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
