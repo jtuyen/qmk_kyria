@@ -1,13 +1,13 @@
-# Kyria 40% Keyboard Config
-This configuration is an ongoing process of discovering new QMK features and diving into the realm of customizing the key layout according to my own daily workflow.
+# Kyria 40% QMK Config
+This QMK configuration is an ongoing process of discovering new QMK features and customizing the layout according to my own daily workflow. This QMK is geared for RP2040 microcontrollers as Pro Micros have limited space so it will not work if you try to duplicate this config.
 
 A high level overview of customized keys:
-- Enabled Tap Dance
-- Enabled Chording
+- Customized layouts for MacOS and Windows. One keyboard to rule them all.
+- Tap Dance
+- Chording/Combos
 - Mod-Tap
 - Modifiers
 - One Shot Mods
-- Mac/Win default layers
 
 MacOS layers:
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout.png)
