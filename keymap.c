@@ -259,6 +259,12 @@ bool oled_task_user(void) {
 // }
 // #endif
 
+// Disable RP2040 power LED
+void keyboard_pre_init_user(void) {
+  setPinOutput(24);
+  writePinHigh(24);
+}
+
 const rgblight_segment_t PROGMEM RGB_MAC_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
     {0,20,HSV_CHARTREUSE}
 );
