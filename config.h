@@ -12,10 +12,7 @@
 #endif
 
 // Enable OLED to mirror data on both sides
-// #define SPLIT_TRANSPORT_MIRROR
-
-// Lets you roll mod-tap keys
-#define IGNORE_MOD_TAP_INTERRUPT
+#define SPLIT_TRANSPORT_MIRROR
 
 #define COMBO_COUNT 13
 #define COMBO_SHOULD_TRIGGER
