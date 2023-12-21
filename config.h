@@ -16,3 +16,5 @@
 
 #define COMBO_COUNT 13
 #define COMBO_SHOULD_TRIGGER
+
+#define LEADER_TIMEOUT 300

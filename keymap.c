@@ -31,8 +31,6 @@ enum combos {
 };
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_LPRN_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_LBRC),
-    [TD_RPRN_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_RPRN, KC_RBRC),
     [TD_LCTL_SPC] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_SPC),
 };
 
@@ -67,10 +65,10 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[MAC_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), TD(TD_LPRN_LBRC), TD(TD_RPRN_RBRC), KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(2), MO(1), KC_SPC, KC_RCTL, KC_DEL, KC_MPLY),
+	[MAC_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), QK_LEAD, QK_LEAD, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(2), MO(1), KC_SPC, KC_RCTL, KC_DEL, KC_MPLY),
 	[MAC_SYMBOL] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[MAC_NAVIGATION] = LAYOUT(KC_TAB, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), LGUI(KC_LEFT), KC_NO, KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_4), KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSA(KC_LEFT), KC_NO, KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
-	[WIN_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), TD(TD_LPRN_LBRC), TD(TD_RPRN_RBRC), KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(5), MO(4), KC_SPC, KC_LCTL, KC_DEL, KC_MPLY),
+	[WIN_BASE] = LAYOUT(MEH_T(KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), QK_LEAD, QK_LEAD, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, KC_LALT, KC_ENT, MO(5), MO(4), KC_SPC, KC_LCTL, KC_DEL, KC_MPLY),
 	[WIN_SYMBOL] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[WIN_NAVIGATION] = LAYOUT(RCS(KC_ESC), KC_NO, LALT(KC_F4), LGUI(KC_E), KC_R, KC_T, KC_HOME, KC_NO, KC_PGUP, KC_END, KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S), KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RCS(KC_LEFT), KC_NO, KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[NUMPAD_RGB] = LAYOUT(TO(0), TO(3), KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, KC_TRNS, RGB_TOG, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_P0, KC_TRNS)
@@ -212,10 +210,65 @@ static const char PROGMEM windows_logo[] = {
 // Enable this line when turning on OLED display to sync displays
 bool should_process_keypress(void) { return true; }
 
-#ifdef OLED_ENABLE
-oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
+void leader_end_user(void) {
+    // tmux open new window
+    if (leader_sequence_one_key(KC_C)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_C);
+    // tmux rename current window
+    } else if (leader_sequence_one_key(KC_COMMA)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_COMMA);
+    // tmux close current window
+    } else if (leader_sequence_one_key(KC_X)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_X);
+    // tmux split horizontal window
+    } else if (leader_sequence_one_key(KC_Z)) {
+        tap_code16(C(KC_B));
+        SEND_STRING("\"");
+    // tmux split vertical window
+    } else if (leader_sequence_one_key(KC_V)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_PERC);
+    // tmux move to previous window
+    } else if (leader_sequence_one_key(KC_H)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_P);
+    // tmux move to next window
+    } else if (leader_sequence_one_key(KC_L)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_N);
+    // tmux move up a pane
+    } else if (leader_sequence_one_key(KC_K)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_UP);
+    // tmux move down a pane
+    } else if (leader_sequence_one_key(KC_J)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_DOWN);
+    // tmux detach session
+    } else if (leader_sequence_one_key(KC_D)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_D);
+    // tmux enter copy mode
+    } else if (leader_sequence_one_key(KC_SLSH)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_LBRC);
+    // tmux paste buffer in copy mode
+    } else if (leader_sequence_one_key(KC_P)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_RBRC);
+    } else if (leader_sequence_one_key(KC_O)) {
+        tap_code16(C(KC_B));
+        tap_code16(KC_O);
+    }
+}
 
-bool oled_task_user(void) {
+#ifdef OLED_ENABLE
+    oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
+
+    bool oled_task_user(void) {
         switch (get_highest_layer(layer_state|default_layer_state)) {
             case MAC_BASE:
                 oled_write_raw_P(mac_logo, sizeof(mac_logo));
@@ -248,7 +301,7 @@ bool oled_task_user(void) {
         oled_write_P(led_usb_state.caps_lock   ? PSTR("CAPLCK ") : PSTR("       "), false);
         oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
         return false;
-}
+    }
 #endif
 
 // #ifdef OLED_ENABLE
@@ -319,24 +372,24 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 };
 
 #ifdef ENCODER_ENABLE
-bool encoder_update_user(uint8_t index, bool clockwise) {
+    bool encoder_update_user(uint8_t index, bool clockwise) {
 
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
+        if (index == 0) {
+            // Volume control
+            if (clockwise) {
+                tap_code(KC_VOLU);
+            } else {
+                tap_code(KC_VOLD);
+            }
+        } else if (index == 1) {
+            if (clockwise) {
+                tap_code16(LSG(KC_RIGHT));
+            } else {
+                tap_code16(LSG(KC_LEFT));
+            }
         }
-    } else if (index == 1) {
-        if (clockwise) {
-            tap_code16(LSG(KC_RIGHT));
-        } else {
-            tap_code16(LSG(KC_LEFT));
-        }
+        return false;
     }
-    return false;
-}
 #endif
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
