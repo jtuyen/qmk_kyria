@@ -8,14 +8,7 @@ A high level overview of customized keys:
 - Mod-Tap
 - Modifiers
 - One Shot Mods
+- Leader key for tmux shortcuts
 
-MacOS layers:
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout.png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(1).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(2).png)
-Windows layers:
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(3).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(4).png)
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(5).png)
-Numpad/RGB/Toggle layer:
-![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/keyboard-layout(6).png)
+Mac OS/Windows Layers
+![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/layers.png)
