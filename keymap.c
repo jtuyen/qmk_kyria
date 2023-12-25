@@ -23,6 +23,10 @@ enum combos {
     MAC_FV_PASTE,
     MAC_QA_MISSION_CTRL,
     WINMAC_SCLN_QUOT_ENT,
+    WINMAC_AS_ALT,
+    WINMAC_DF_CTRL,
+    WINMAC_JK_CTRL,
+    WINMAC_L_SCLN_ALT,
     WIN_AZ_UNDO,
     WIN_SX_CUT,
     WIN_DC_COPY,
@@ -46,6 +50,10 @@ const uint16_t PROGMEM mac_fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM mac_fr_combo[] = {KC_F, KC_R, COMBO_END};
 const uint16_t PROGMEM mac_qa_combo[] = {KC_Q, KC_A, COMBO_END};
 const uint16_t PROGMEM winmac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM winmac_as_combo[] = {KC_A, KC_N, COMBO_END};
+const uint16_t PROGMEM winmac_lscln_combo[] = {KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM winmac_df_combo[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM winmac_jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM win_az_combo[] = {KC_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM win_sx_combo[] = {KC_S, KC_X, COMBO_END};
 const uint16_t PROGMEM win_dc_combo[] = {KC_D, KC_C, COMBO_END};
@@ -61,6 +69,10 @@ combo_t key_combos[COMBO_COUNT] = {
   [MAC_FV_PASTE] = COMBO(mac_fv_combo, LGUI(KC_V)),
   [MAC_QA_MISSION_CTRL] = COMBO(mac_qa_combo, LCTL(KC_UP)),
   [WINMAC_SCLN_QUOT_ENT] = COMBO(winmac_scln_quot_ent, (KC_ENT)),
+  [WINMAC_AS_ALT] = COMBO(winmac_as_combo, OSM(KC_LALT)),
+  [WINMAC_L_SCLN_ALT] = COMBO(winmac_lscln_combo, OSM(KC_LALT)),
+  [WINMAC_DF_CTRL] = COMBO(winmac_df_combo, OSM(KC_LCTL)),
+  [WINMAC_JK_CTRL] = COMBO(winmac_jk_combo, OSM(KC_LCTL)),
   [WIN_AZ_UNDO] = COMBO(win_az_combo, RCTL(KC_Z)),
   [WIN_SX_CUT] = COMBO(win_sx_combo, RCTL(KC_X)),
   [WIN_DC_COPY] = COMBO(win_dc_combo, RCTL(KC_C)),
@@ -69,10 +81,10 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[MAC_BASE] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, LCTL_T(KC_J), LSFT_T(KC_K), LALT_T(KC_L), LGUI_T(KC_SCLN), KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), KC_NO, KC_NO, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, QK_LEAD, KC_ENT, MO(2), MO(1), KC_SPC, QK_LEAD, KC_DEL, KC_MPLY),
+	[MAC_BASE] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, ALL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), KC_NO, KC_NO, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, QK_LEAD, KC_ENT, MO(2), MO(1), KC_SPC, QK_LEAD, KC_DEL, KC_MPLY),
 	[MAC_SYMBOL] = LAYOUT(KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[MAC_NAVIGATION] = LAYOUT(KC_TAB, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), LGUI(KC_LEFT), KC_NO, KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_4), KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSA(KC_LEFT), KC_NO, KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
-	[WIN_BASE] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G, KC_H, LCTL_T(KC_J), LSFT_T(KC_K), LALT_T(KC_L), LGUI_T(KC_SCLN), KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), KC_NO, KC_NO, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, QK_LEAD, KC_ENT, MO(5), MO(4), KC_SPC, KC_LCTL, KC_DEL, KC_MPLY),
+	[WIN_BASE] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), KC_NO, KC_NO, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, QK_LEAD, KC_ENT, MO(5), MO(4), KC_SPC, KC_LCTL, KC_DEL, KC_MPLY),
 	[WIN_SYMBOL] = LAYOUT(KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[WIN_NAVIGATION] = LAYOUT(RCS(KC_ESC), KC_NO, LALT(KC_F4), LGUI(KC_E), KC_R, KC_T, KC_HOME, KC_NO, KC_PGUP, KC_END, KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S), KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RCS(KC_LEFT), KC_NO, KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[NUMPAD_RGB] = LAYOUT(TO(0), TO(3), KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, ANTI_IDLE, RGB_TOG, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_P0, ANTI_IDLE)
@@ -271,7 +283,7 @@ void leader_end_user(void) {
 
 #ifdef OLED_ENABLE
     oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
-
+    
     bool oled_task_user(void) {
         switch (get_highest_layer(layer_state|default_layer_state)) {
             case MAC_BASE:
@@ -476,18 +488,28 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 
 bool is_anti_idle_active = false;
 bool anti_idle_direction = false; // used to alternate direction
-uint16_t anti_idle_frequency = 15000; // how often to move the mouse (15 seconds)
+uint16_t anti_idle_frequency = 5000; // how often to move the mouse (5 seconds)
 uint16_t anti_idle_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-      case ANTI_IDLE:
-          if (record->event.pressed) {
-              is_anti_idle_active = !is_anti_idle_active;
-          }
-          break;
+        case ANTI_IDLE:
+            if (record->event.pressed) {
+                is_anti_idle_active = !is_anti_idle_active;
+                oled_write_P(PSTR("INSOMNIAC"), false);
+            }
+            break;
+        case TO(0):
+            if (record->event.pressed) {
+                is_anti_idle_active = false;
+            }
+            break;
+        case TO(3):
+            if (record->event.pressed) {
+                is_anti_idle_active = false;
+            }
+            break;
     }
-
     return true;
 }
 

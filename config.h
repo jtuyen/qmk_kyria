@@ -9,12 +9,13 @@
     #define RGBLIGHT_SLEEP
     #define RGBLIGHT_LAYERS
     #define RGBLIGHT_SPLIT
+    #define RGBLIGHT_LAYER_BLINK
 #endif
 
 // Enable OLED to mirror data on both sides
 #define SPLIT_TRANSPORT_MIRROR
 
-#define COMBO_COUNT 13
+#define COMBO_COUNT 17
 #define COMBO_SHOULD_TRIGGER
 
 #define LEADER_TIMEOUT 300
