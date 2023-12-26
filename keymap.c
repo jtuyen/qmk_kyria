@@ -34,8 +34,8 @@ enum combos {
     WIN_FV_PASTE,
 };
 
-enum anti_idle {
-    ANTI_IDLE,
+enum insomnia {
+    INSOMNIA,
 };
 
 tap_dance_action_t tap_dance_actions[] = {
@@ -50,7 +50,7 @@ const uint16_t PROGMEM mac_fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM mac_fr_combo[] = {KC_F, KC_R, COMBO_END};
 const uint16_t PROGMEM mac_qa_combo[] = {KC_Q, KC_A, COMBO_END};
 const uint16_t PROGMEM winmac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
-const uint16_t PROGMEM winmac_as_combo[] = {KC_A, KC_N, COMBO_END};
+const uint16_t PROGMEM winmac_as_combo[] = {KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM winmac_lscln_combo[] = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM winmac_df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM winmac_jk_combo[] = {KC_J, KC_K, COMBO_END};
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[WIN_BASE] = LAYOUT(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TD(TD_LCTL_SPC), KC_NO, KC_NO, KC_MINS, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, KC_MUTE, KC_LGUI, QK_LEAD, KC_ENT, MO(5), MO(4), KC_SPC, KC_LCTL, KC_DEL, KC_MPLY),
 	[WIN_SYMBOL] = LAYOUT(KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
 	[WIN_NAVIGATION] = LAYOUT(RCS(KC_ESC), KC_NO, LALT(KC_F4), LGUI(KC_E), KC_R, KC_T, KC_HOME, KC_NO, KC_PGUP, KC_END, KC_NO, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S), KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RCS(KC_LEFT), KC_NO, KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
-	[NUMPAD_RGB] = LAYOUT(TO(0), TO(3), KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, ANTI_IDLE, RGB_TOG, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_P0, ANTI_IDLE)
+	[NUMPAD_RGB] = LAYOUT(TO(0), TO(3), KC_NO, KC_NO, KC_NO, KC_NO, KC_NUM, KC_P7, KC_P8, KC_P9, KC_PDOT, KC_BSPC, RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_PENT, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PSLS, RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PEQL, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PAST, INSOMNIA, RGB_TOG, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_P0, INSOMNIA)
 };
 
 static const char PROGMEM mac_logo[] = {
@@ -495,28 +495,28 @@ static const char PROGMEM insomniac_logo[] = {
 // Enable this line when turning on OLED display to sync displays
 bool should_process_keypress(void) { return true; }
 
-bool is_anti_idle_active = false;
-bool anti_idle_direction = false; // used to alternate direction
-uint16_t anti_idle_frequency = 5000; // how often to move the mouse (5 seconds)
-uint16_t anti_idle_timer = 0;
+bool is_insomnia_active = false;
+bool insomnia_direction = false; // used to alternate direction
+uint16_t insomnia_frequency = 5000; // how often to move the mouse (5 seconds)
+uint16_t insomnia_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case ANTI_IDLE:
+        case INSOMNIA:
             if (record->event.pressed) {
-                is_anti_idle_active = !is_anti_idle_active;
+                is_insomnia_active = !is_insomnia_active;
                 void oled_clear(void);
                 oled_write_raw_P(insomniac_logo, sizeof(insomniac_logo));
             }
             break;
         case TO(0):
             if (record->event.pressed) {
-                is_anti_idle_active = false;
+                is_insomnia_active = false;
             }
             break;
         case TO(3):
             if (record->event.pressed) {
-                is_anti_idle_active = false;
+                is_insomnia_active = false;
             }
             break;
     }
@@ -526,18 +526,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void matrix_scan_user(void) {
     if (is_keyboard_master()) {
         // initialize timer on master half only, remove if statement above for non-split
-        if (anti_idle_timer == 0) anti_idle_timer = timer_read();
+        if (insomnia_timer == 0) insomnia_timer = timer_read();
     }
 
-    if (is_anti_idle_active) {
-        if (timer_elapsed(anti_idle_timer) > anti_idle_frequency) {
-            anti_idle_timer = timer_read();
-            if (anti_idle_direction) {
+    if (is_insomnia_active) {
+        if (timer_elapsed(insomnia_timer) > insomnia_frequency) {
+            insomnia_timer = timer_read();
+            if (insomnia_direction) {
                 tap_code(KC_MS_LEFT);
             } else {
                 tap_code(KC_MS_RIGHT);
             }
-            anti_idle_direction = !anti_idle_direction;
+            insomnia_direction = !insomnia_direction;
         }
     }
 }
@@ -622,7 +622,7 @@ void leader_end_user(void) {
                 break;
             case NUMPAD_RGB:
                 oled_write_raw_P(numopts_logo, sizeof(numopts_logo));
-                if (is_anti_idle_active) {
+                if (is_insomnia_active) {
                     oled_write_raw_P(insomniac_logo, sizeof(insomniac_logo));
                 }
                 break;
