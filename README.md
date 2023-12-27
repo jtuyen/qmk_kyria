@@ -7,8 +7,9 @@ A high level overview of customized keys:
 - Chording/Combos
 - Mod-Tap
 - Modifiers
-- One Shot Mods
+- Insomnia mode
 - Leader key for tmux shortcuts
+- Hyper key for shortcat activation
 
 Mac OS/Windows Layers
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/layers.png)
