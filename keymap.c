@@ -770,18 +770,6 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
             }
             break;
         }
-        case WIN_QW_CLOSE_WIN: {
-            if (layer_state_is(MAC_BASE)) {
-                return false;
-            }
-            break;
-        } 
-        case WIN_WE_CLOSE_TAB: {
-            if (layer_state_is(MAC_BASE)) {
-                return false;
-            }
-            break;
-        }
         case MAC_SW_ALFRED_SNIPPET: {
             if (layer_state_is(WIN_BASE)) {
                 return false;
