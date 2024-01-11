@@ -14,9 +14,8 @@
 // Enable OLED to mirror data on both sides
 #define SPLIT_TRANSPORT_MIRROR
 
-#define COMBO_COUNT 19
+#define COMBO_COUNT 17
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM 40
 
 #define LEADER_TIMEOUT 300
 
