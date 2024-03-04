@@ -546,6 +546,16 @@ void matrix_scan_user(void) {
     }
 }
 
+bool get_combo_term(uint16_t index, combo_t *combo) {
+    switch (index) {
+        case WINMAC_L_SCLN_ALT:
+            return 1;
+        case WINMAC_AS_ALT:
+            return 1;
+        };
+    return COMBO_TERM;
+}
+
 void leader_end_user(void) {
     // tmux open new window
     if (leader_sequence_one_key(KC_C)) {
