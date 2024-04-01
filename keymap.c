@@ -24,6 +24,8 @@ enum combos {
     WINMAC_SCLN_QUOT_ENT,
     WINMAC_DF_CTRL,
     WINMAC_JK_CTRL,
+    WINMAC_HJ_ALT,
+    WINMAC_FG_ALT,
     WIN_AZ_UNDO,
     WIN_SX_CUT,
     WIN_DC_COPY,
@@ -59,6 +61,8 @@ const uint16_t PROGMEM mac_qa_combo[] = {KC_Q, KC_A, COMBO_END};
 const uint16_t PROGMEM winmac_scln_quot_ent[] = {KC_SCLN, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM winmac_df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM winmac_jk_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM winmac_hj_combo[] = {KC_H, KC_J, COMBO_END};
+const uint16_t PROGMEM winmac_fg_combo[] = {KC_F, KC_G, COMBO_END};
 const uint16_t PROGMEM win_az_combo[] = {KC_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM win_sx_combo[] = {KC_S, KC_X, COMBO_END};
 const uint16_t PROGMEM win_dc_combo[] = {KC_D, KC_C, COMBO_END};
@@ -76,6 +80,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [WINMAC_SCLN_QUOT_ENT] = COMBO(winmac_scln_quot_ent, (KC_ENT)),
   [WINMAC_DF_CTRL] = COMBO(winmac_df_combo, LCTL_T(KC_LCTL)),
   [WINMAC_JK_CTRL] = COMBO(winmac_jk_combo, LCTL_T(KC_LCTL)),
+  [WINMAC_HJ_ALT] = COMBO(winmac_hj_combo, LALT_T(KC_LALT)),
+  [WINMAC_FG_ALT] = COMBO(winmac_fg_combo, LALT_T(KC_LALT)),
   [WIN_AZ_UNDO] = COMBO(win_az_combo, RCTL(KC_Z)),
   [WIN_SX_CUT] = COMBO(win_sx_combo, RCTL(KC_X)),
   [WIN_DC_COPY] = COMBO(win_dc_combo, RCTL(KC_C)),
