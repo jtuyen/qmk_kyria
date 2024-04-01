@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "sm_td.h"
 
 enum layers {
     MAC_BASE = 0,
@@ -40,16 +39,6 @@ enum insomnia {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_LCTL_SPC] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_SPC),
 };
-
-enum smtd {
-    EMULATE_LALT,
-};
-
-smtd_state smtd_states[] = {
-    SMTD(EMULATE_LALT),
-};
-
-size_t smtd_states_size = sizeof(smtd_states) / sizeof(smtd_states[0]);
 
 const uint16_t PROGMEM mac_az_combo[] = {KC_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM mac_sx_combo[] = {KC_S, KC_X, COMBO_END};
@@ -511,9 +500,6 @@ uint16_t insomnia_frequency = 5000; // how often to move the mouse (5 seconds)
 uint16_t insomnia_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_smtd(keycode, record)) {
-        return false;
-    }
     switch (keycode) {
         case INSOMNIA:
             if (record->event.pressed) {
@@ -534,43 +520,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
     return true;
-}
-
-void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
-    switch (keycode) {
-        case EMULATE_LALT: {
-            switch (action) {
-                case SMTD_ACTION_TOUCH:
-                    break;
-                case SMTD_ACTION_TAP:
-                    tap_code(KC_A);
-                    break;
-                case SMTD_ACTION_HOLD:
-                    switch (tap_count) {
-                        case 0:
-                        case 1:
-                            register_code(KC_LALT);
-                            break;
-                        default:
-                            register_code(KC_A);
-                            break;
-                    }
-                    break;
-                case SMTD_ACTION_RELEASE:
-                    switch (tap_count) {
-                        case 0:
-                        case 1:
-                            unregister_code(KC_LALT);
-                            break;
-                        default:
-                            unregister_code(KC_A);
-                            break;
-                    }
-                    break;
-            }
-            break;
-        }
-    }
 }
 
 // void dynamic_macro_record_start_user(int8_t direction) {
