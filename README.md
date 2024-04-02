@@ -1,20 +1,41 @@
 # Kyria: One keyboard to rule them all.
-This QMK configuration is an ongoing process of discovering new QMK features and customizing the layout according to my own daily workflow. This config is geared for RP2040 microcontrollers as Pro Micros have limited space so it will not work if you try to duplicate this config.
+This QMK configuration is an ongoing process of discovering new QMK features and customizing the layout according to my own daily workflow.
 
 To compile:
 ```
 qmk flash -kb splitkb/kyria/rev2 -e CONVERT_TO=promicro_rp2040
 ```
 
-A high level overview of customized keys:
+A high level overview of customized keys and what problem it solves:
 - Customized layouts for MacOS and Windows
+  - Dedicated keys for text highlighting and navigation
+  - Dedicated keys to scroll through text windows without a mouse
+  - Specific combos are set between Windows and MacOS
+  - Each layer has predefined LED color of which is activated when triggered
 - Tap Dance
+  - A single key acts as a dual function key
+  - An extra space key on the left side of the keyboard as sometimes I would like to preview files in Finder while my hand is on the mouse
 - Chording/Combos
+  - To compact more keys into the main Mac/Windows layers
+  - Common keyboard shortcuts like Undo, Copy, and Paste are compacted into combo keys
+  - Windows and Alfred keyboard shortcuts to show snippets or paste history features
+  - Homerow modifers to further compact more keys into a layer
 - Mod-Tap
+  - Heavy usage of compacting modifier keys into one key to minimize weird hand movements of holding down keys
 - Modifiers
+  - Similar reasons when using mod-tap features
 - Insomnia mode
-- Leader key for tmux shortcuts
+  - Solves my issues of VPN timing out due to inactivity.
+  - Walking away from the keyboard and not be afraid of losing my data exfil session :)
+- Leader key for shortcuts for commonly used tools
+  - No need to import custom tmux config files
+  - All shortcuts are neatly organized into single keystrokes
+  - Untapped potential of compacting and expansion of keys
 - Hyper key for shortcat activation
+  - Easy activation for window navigation without a mouse
+- Dynamic macros
+  - Record and playback a long string of commands on the fly
+  - Useful in situations where copy and paste isn't available in a shoddy remote shell session
 
 Mac OS/Windows Layers
 ![keyboard image](https://raw.githubusercontent.com/jtuyen/qmk_kyria/main/layers.png)
