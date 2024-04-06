@@ -12,9 +12,6 @@ A high level overview of customized keys and what problem it solves:
   - Dedicated keys to scroll through text windows without a mouse
   - Specific combos are set between Windows and MacOS
   - Each layer has predefined LED color of which is activated when triggered
-- Tap Dance
-  - A single key acts as a dual function key
-  - An extra space key on the left side of the keyboard as sometimes I would like to preview files in Finder while my hand is on the mouse
 - Chording/Combos
   - To compact more keys into the main Mac/Windows layers
   - Common keyboard shortcuts like Undo, Copy, and Paste are compacted into combo keys
@@ -22,6 +19,7 @@ A high level overview of customized keys and what problem it solves:
   - Homerow modifers to further compact more keys into a layer
 - Mod-Tap
   - Heavy usage of compacting modifier keys into one key to minimize weird hand movements of holding down keys
+  - An extra space key on the left side of the keyboard as sometimes I would like to preview files in Finder while my hand is on the mouse
 - Modifiers
   - Similar reasons when using mod-tap features
 - Insomnia mode
@@ -31,8 +29,6 @@ A high level overview of customized keys and what problem it solves:
   - No need to import custom tmux config files
   - All shortcuts are neatly organized into single keystrokes
   - Untapped potential of compacting and expansion of keys
-- Hyper key for shortcat activation
-  - Easy activation for window navigation without a mouse
 - Dynamic macros
   - Record and playback a long string of commands on the fly
   - Useful in situations where copy and paste isn't available in a shoddy remote shell session
