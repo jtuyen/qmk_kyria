@@ -12,18 +12,20 @@ A high level overview of customized keys and what problem it solves:
   - Dedicated keys to scroll through text windows without a mouse
   - Specific combos are set between Windows and MacOS
   - Each layer has predefined LED color of which is activated when triggered
+  - Tactile scroll wheel serves as a vertical scroller
 - Chording/Combos
   - To compact more keys into the main Mac/Windows layers
   - Common keyboard shortcuts like Undo, Copy, and Paste are compacted into combo keys
   - Windows and Alfred keyboard shortcuts to show snippets or paste history features
-  - Homerow modifers to further compact more keys into a layer
+  - Homerow modifers to further compact more keys into a layer. Kinda works, still evaluating optimal positioning.
 - Mod-Tap
   - Heavy usage of compacting modifier keys into one key to minimize weird hand movements of holding down keys
   - An extra space key on the left side of the keyboard as sometimes I would like to preview files in Finder while my hand is on the mouse
 - Modifiers
-  - Similar reasons when using mod-tap features
+  - Similar reasons when using mod-tap features and heavily used
+  - Commonly used actions/commands should be compacted into a single or double keystroke. As a result, it will allow you to abstract away from your dotfiles and your custom QMK keyboard will become a real tool. The only thing I want to do with application is setting up keyboard shortcuts and not download a whole bunch of custom configs and dependencies.
 - Insomnia mode
-  - Solves my issues of VPN timing out due to inactivity.
+  - Solves my issues of VPN timing out due to inactivity
   - Walking away from the keyboard and not be afraid of losing my data exfil session :)
 - Leader key for shortcuts for commonly used tools
   - No need to import custom tmux config files
