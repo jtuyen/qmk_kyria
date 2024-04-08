@@ -6,6 +6,11 @@ To compile:
 qmk flash -kb splitkb/kyria/rev2 -e CONVERT_TO=promicro_rp2040
 ```
 
+To export C to JSON:
+```
+qmk c2json -km keymap.c -kb splitkb/kyria/rev2 -o export.json keymap.c
+```
+
 A high level overview of customized keys and what problem it solves:
 - Customized layouts for MacOS and Windows
   - Dedicated keys for text highlighting and navigation
@@ -23,10 +28,10 @@ A high level overview of customized keys and what problem it solves:
   - An extra space key on the left side of the keyboard as sometimes I would like to preview files in Finder while my hand is on the mouse
 - Modifiers
   - Similar reasons when using mod-tap features and heavily used
-  - Commonly used actions/commands should be compacted into a single or double keystroke. As a result, it will allow you to abstract away from your dotfiles and your custom QMK keyboard will become a real tool. The only thing I want to do with application is setting up keyboard shortcuts and not download a whole bunch of custom configs and dependencies.
+  - Commonly used actions/commands should be compacted into a single or double keystroke. As a result, it will allow you to abstract away from your dotfiles and your custom QMK keyboard will become a real tool. The only thing I want to do with application is setting up keyboard shortcuts and not download a whole bunch of custom configs and dependencies
 - Insomnia mode
   - Solves my issues of VPN timing out due to inactivity
-  - Walking away from the keyboard and not be afraid of losing my data exfil session :)
+  - Walking away from the keyboard and not be afraid of losing my slow drip data exfil session :)
 - Leader key for shortcuts for commonly used tools
   - No need to import custom tmux config files
   - All shortcuts are neatly organized into single keystrokes
