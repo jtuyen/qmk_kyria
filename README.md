@@ -30,6 +30,8 @@ A high level overview of customized keys and what problem it solves:
   - Similar reasons when using mod-tap features and heavily used
   - Commonly used actions/commands should be compacted into a single or double keystroke. As a result, it will allow you to abstract away from your dotfiles and your custom QMK keyboard will become a real tool. The only thing I want to do with application is setting up keyboard shortcuts and not download a whole bunch of custom configs and dependencies
   - The MEH modifier is commonly used as my global application shortcut. This way it saves my sanity of remembering what key combinations to trigger for each application, it's just MEH+KC
+- Layers
+  - Tap toggling to enable one handed navigation layer
 - Insomnia mode
   - Solves my issues of VPN timing out due to inactivity
   - Walking away from the keyboard and not be afraid of losing my slow drip data exfil session :)
