@@ -29,7 +29,7 @@ A high level overview of customized keys and what problem it solves:
 - Modifiers
   - Similar reasons when using mod-tap features and heavily used
   - Commonly used actions/commands should be compacted into a single or double keystroke. As a result, it will allow you to abstract away from your dotfiles and your custom QMK keyboard will become a real tool. The only thing I want to do with application is setting up keyboard shortcuts and not download a whole bunch of custom configs and dependencies
-  - The MEH modifier is commonly used as my global application shortcut. This way it saves my sanity of remembering what key combinations to trigger for each application, it's just MEH+KC
+  - The MEH/HYPER modifier is commonly used as my global application shortcut. This way it saves my sanity of remembering what key combinations to trigger for each application, it's just MEH+KC or HYPER+KC. For example, triggering Alfred using HYPER+SPACE or MEH+ESC to open Apache Guacamole's management side panel.
 - Layers
   - Tap toggling to enable one handed navigation layer
 - Insomnia mode
