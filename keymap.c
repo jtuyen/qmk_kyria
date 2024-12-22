@@ -624,7 +624,7 @@ void leader_end_user(void) {
     } else if (leader_sequence_one_key(KC_MINS)) {
         tap_code16(C(KC_UP));
     // winmac: close window/tab
-    } else if (leader_sequence_one_key(KC_TAB)) {
+    } else if (leader_sequence_one_key(KC_W)) {
         if (layer_state_is(MAC_BASE)) {
             tap_code16(G(KC_W));
         };
