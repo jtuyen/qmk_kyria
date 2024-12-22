@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS,
                 KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[MAC_NAVIGATION] = LAYOUT(KC_TRNS, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), LGUI(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC,
+	[MAC_NAVIGATION] = LAYOUT(KC_TRNS, KC_NO, KC_NO, LGUI(KC_E), KC_NO, KC_NO, LGUI(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC,
                 KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_4),
                 KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LSA(KC_LEFT), RCS(KC_TAB), KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0), TO(6), KC_TRNS, KC_NO, KC_TRNS, KC_TRNS),
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 QK_GESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS,
                 KC_LSFT, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_COMM, KC_DOT, KC_SLSH, KC_EQL,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[WIN_NAVIGATION] = LAYOUT(RCS(KC_ESC), KC_NO, KC_NO, LGUI(KC_E), LCTL(KC_F5), LSG(KC_RIGHT), KC_HOME, LCTL(KC_TAB), KC_PGUP, KC_END, KC_NO, KC_BSPC,
+	[WIN_NAVIGATION] = LAYOUT(RCS(KC_ESC), KC_NO, KC_NO, LGUI(KC_E), KC_NO, LSG(KC_RIGHT), KC_HOME, LCTL(KC_TAB), KC_PGUP, KC_END, KC_NO, KC_BSPC,
                 KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S),
                 KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RCS(KC_LEFT), RCS(KC_TAB), KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), TO(6), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
@@ -518,9 +518,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case INSOMNIA:
             if (record->event.pressed) {
-                is_insomnia_active = !is_insomnia_active;
-                void oled_clear(void);
-                oled_write_raw_P(insomniac_logo, sizeof(insomniac_logo));
+                if (layer_state_is(MAC_BASE)) {
+                    break;
+                } else if (layer_state_is(WIN_BASE)) {
+                    break;
+                } else if (layer_state_is(NUMPAD_RGB)) {
+                    is_insomnia_active = !is_insomnia_active;
+                    void oled_clear(void);
+                    oled_write_raw_P(insomniac_logo, sizeof(insomniac_logo));
+                }
             }
             break;
         case TO(0):
@@ -548,7 +554,7 @@ void matrix_scan_user(void) {
         if (insomnia_timer == 0) insomnia_timer = timer_read();
     }
 
-    if (is_insomnia_active) {
+    if (layer_state_is(NUMPAD_RGB) && is_insomnia_active) {
         if (timer_elapsed(insomnia_timer) > insomnia_frequency) {
             insomnia_timer = timer_read();
             if (insomnia_direction) {
@@ -614,15 +620,52 @@ void leader_end_user(void) {
     } else if (leader_sequence_one_key(KC_O)) {
         tap_code16(C(KC_B));
         tap_code16(KC_O);
-    // windows: close window/tab
-    } else if (leader_sequence_one_key(KC_W)) {
-        tap_code16(C(KC_W));
-    // windows: new tab
+    // mac: trigger expose
+    } else if (leader_sequence_one_key(KC_MINS)) {
+        tap_code16(C(KC_UP));
+    // winmac: close window/tab
+    } else if (leader_sequence_one_key(KC_TAB)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_W));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_W));
+        };
+    // winmac: new tab
     } else if (leader_sequence_one_key(KC_T)) {
-        tap_code16(C(KC_T));
-    // windows: quit/close window
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_T));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_T));
+        };
+    // winmac: quit/close window
     } else if (leader_sequence_one_key(KC_Q)) {
-        tap_code16(A(KC_F4));
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_Q));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(A(KC_F4));
+        };
+    // winmac: refresh
+    } else if (leader_sequence_one_key(KC_R)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_R));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(KC_F5);
+        };
+    // winmac: url bar
+    } else if (leader_sequence_one_key(KC_DOT)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_L));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_L));
+        };
+    // winmac: open finder/explorer
+    } else if (leader_sequence_one_key(KC_E)) {
+            tap_code16(G(KC_E));
     }
 }
 
