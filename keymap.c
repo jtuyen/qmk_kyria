@@ -631,6 +631,14 @@ void leader_end_user(void) {
         if (layer_state_is(WIN_BASE)) {
             tap_code16(C(KC_W));
         };
+    // winmac: switch between windows
+    } else if (leader_sequence_one_key(KC_TAB)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_TAB));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(A(KC_TAB));
+        };
     // winmac: new tab
     } else if (leader_sequence_one_key(KC_T)) {
         if (layer_state_is(MAC_BASE)) {
