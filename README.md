@@ -1,17 +1,21 @@
-# Kyria: One keyboard to rule them all.
+# Kyria: One keyboard to rule them all
+
 This QMK configuration is an ongoing process of discovering new QMK features and customizing the layout according to my own daily workflow.
 
 To compile:
+
 ```
-qmk flash -kb splitkb/kyria/rev2 -e CONVERT_TO=promicro_rp2040
+qmk flash -kb splitkb/kyria/rev2 -km jtuyen
 ```
 
 To export C to JSON:
+
 ```
 qmk c2json -km keymap.c -kb splitkb/kyria/rev2 -o export.json keymap.c
 ```
 
 A high level overview of customized keys and what problem it solves:
+
 - Customized layouts for MacOS and Windows
   - Dedicated keys for text highlighting and navigation
   - Dedicated keys to scroll through text windows without a mouse
